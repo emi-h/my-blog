@@ -6,18 +6,16 @@
   justify-content: center;
   align-items: center;
 }
-
 .main {
   flex: 1;
-  display: flex;
 }
-.section {
-  padding: 3rem 0 6rem;
+.colums {
+  display: flex;
 }
 .inner {
   width: 1160px;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 3rem auto 6rem;
 }
 .header {
   padding-bottom: 1rem;
@@ -76,6 +74,11 @@
   border-radius: 5px;
   border: 1px solid #ddd;
   background-color: #ddd;
+}
+
+.aside {
+  width: 300px;
+  margin-left: 20px;
 }
 
 /* .tags span:hover,

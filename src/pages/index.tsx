@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
@@ -20,49 +21,54 @@ export const Home: NextPage<{ blogData: Props }> = ({ blogData }) => {
       </Head>
       <Header />
       <main className={styles.main}>
-        <section className={styles.section}>
-          <div className={styles.inner}>
-            <div className={styles.header}>
-              <h2>blog</h2>
-              <p>記事合計：{blogData.totalCount}件</p>
-            </div>
-            <ul className={styles.grid}>
-              {blogData.contents.map((data) => {
-                return (
-                  <li className={styles.card} key={data.id}>
-                    <Link href={"/"}>
-                      <div className={styles.card_img}>
-                        <Image
-                          src="/eric.png"
-                          alt="Picture of the author"
-                          fill
-                          sizes="100%"
-                        />
-                      </div>
-                      <div className={styles.card_description}>
-                        <div className={styles.card_content}>
-                          <p className={styles.card_categories}>
-                            <span>{"カテゴリ"}</span>
-                          </p>
-                          <p className={styles.card_title}>{data.title}</p>
-                          <time dateTime={""} className={styles.card_date}>
-                            {data.createdAt}
-                          </time>
-                        </div>
-                        <p className={styles.card_tags}>
-                          <span>タグ</span>
-                          <span>タグ</span>
-                          <span>タグ</span>
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+        <div className={styles.inner}>
+          <div className={styles.header}>
+            <h2>blog</h2>
+            <p>記事合計：{blogData.totalCount}件</p>
           </div>
-        </section>
-        <aside>サイドバー</aside>
+          <div className={styles.colums}>
+            <div className={styles.content}>
+              <ul className={styles.grid}>
+                {blogData.contents.map((data) => {
+                  return (
+                    <li className={styles.card} key={data.id}>
+                      <Link href={"/"}>
+                        <div className={styles.card_img}>
+                          <Image
+                            src="/eric.png"
+                            alt="Picture of the author"
+                            fill
+                            sizes="100%"
+                          />
+                        </div>
+                        <div className={styles.card_description}>
+                          <div className={styles.card_content}>
+                            <p className={styles.card_categories}>
+                              <span>{"カテゴリ"}</span>
+                            </p>
+                            <p className={styles.card_title}>{data.title}</p>
+                            <time
+                              dateTime={data.createdAt}
+                              className={styles.card_date}
+                            >
+                              {dayjs(data.createdAt).format("YYYY/MM/DD")}
+                            </time>
+                          </div>
+                          <p className={styles.card_tags}>
+                            <span>タグ</span>
+                            <span>タグ</span>
+                            <span>タグ</span>
+                          </p>
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <aside className={styles.aside}>サイドバー</aside>
+          </div>
+        </div>
       </main>
       <Footer />
     </div>
