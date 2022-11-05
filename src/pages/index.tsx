@@ -30,12 +30,13 @@ export const Home: NextPage<{ blogData: Props }> = ({ blogData }) => {
             <div className={styles.content}>
               <ul className={styles.grid}>
                 {blogData.contents.map((data) => {
+                  const thumUrl = data.portfolio_img.url;
                   return (
                     <li className={styles.card} key={data.id}>
                       <Link href={"/"}>
                         <div className={styles.card_img}>
                           <Image
-                            src="/eric.png"
+                            src={thumUrl}
                             alt="Picture of the author"
                             fill
                             sizes="100%"
@@ -78,7 +79,10 @@ export const Home: NextPage<{ blogData: Props }> = ({ blogData }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
+  // コンテンツの取得
   const blogData = await client.getList<Blog>({ endpoint: "blog" });
+  // カテゴリーコンテンツの取得
+  // const categoryData = await client.get({ endpoint: "categories" });
   return {
     props: {
       blogData,
