@@ -39,20 +39,22 @@ export const Home: NextPage<{ blogData: Props }> = ({ blogData }) => {
                           sizes="100%"
                         />
                       </div>
-                      <div className={styles.card_content}>
-                        <p className={styles.card_categories}>
-                          <span>{"カテゴリ"}</span>
+                      <div className={styles.card_description}>
+                        <div className={styles.card_content}>
+                          <p className={styles.card_categories}>
+                            <span>{"カテゴリ"}</span>
+                          </p>
+                          <p className={styles.card_title}>{data.title}</p>
+                          <time dateTime={""} className={styles.card_date}>
+                            {data.createdAt}
+                          </time>
+                        </div>
+                        <p className={styles.card_tags}>
+                          <span>タグ</span>
+                          <span>タグ</span>
+                          <span>タグ</span>
                         </p>
-                        <p className={styles.card_title}>{data.title}</p>
-                        <time dateTime={""} className={styles.card_date}>
-                          {data.createdAt}
-                        </time>
                       </div>
-                      <p className={styles.card_tags}>
-                        <span>タグ</span>
-                        <span>タグ</span>
-                        <span>タグ</span>
-                      </p>
                     </Link>
                   </li>
                 );
