@@ -1,0 +1,10 @@
+.header {
+  width: 100%;
+  padding: 0 1rem;
+  background-color: #eee;
+}
+.logo a:hover,
+.logo a:focus,
+.logo a:active {
+  opacity: 0.8;
+}
