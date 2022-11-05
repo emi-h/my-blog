@@ -1,3 +1,27 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["sort-keys-custom-order", "simple-import-sort", "jsx-a11y"],
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    // console.log をエラーにする
+    "no-console": ["error", { "allow": ["warn", "info", "error"] }],
+    // For JS objects sorting
+    "sort-keys-custom-order/object-keys": [
+      "error",
+      { "orderedKeys": ["id", "name", "title"] }
+    ],
+    // For TS types sorting
+    "sort-keys-custom-order/type-keys": [
+      "error",
+      { "orderedKeys": ["id", "name", "title"] }
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
 }
