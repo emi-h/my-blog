@@ -5,9 +5,11 @@ import styles from "src/components/Header/Header.module.css";
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <h1 className={styles.logo}>
-        <Link href="/">Emi</Link>
-      </h1>
+      <div className={styles.inner}>
+        <h1 className={styles.logo}>
+          <Link href="/">Emi&apos;s blog</Link>
+        </h1>
+      </div>
     </header>
   );
 };
