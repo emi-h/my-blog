@@ -1,14 +1,3 @@
-.container {
-  min-height: 100vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.main {
-  flex: 1;
-}
 .colums {
   display: flex;
 }
@@ -79,6 +68,9 @@
   background-color: #ddd;
 }
 
+.categoryAtricleList li {
+  margin-bottom: 12px;
+}
 /* .tags span:hover,
 .tags span:focus,
 .tags span:active {
