@@ -4,6 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Pagination } from "src/components/Pagination/Pagination";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
@@ -16,6 +17,8 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
   blogData,
   categoryData,
 }) => {
+  // console.log(blogData);
+
   return (
     <>
       <Head>
@@ -67,6 +70,7 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
                 );
               })}
             </ul>
+            <Pagination totalCount={blogData.totalCount} />
           </div>
           <Sidebar categoryData={categoryData} />
         </div>
@@ -79,7 +83,10 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   // ブログコンテンツの取得
-  const blogData = await client.getList<Blog>({ endpoint: "blog" });
+  const blogData = await client.getList<Blog>({
+    endpoint: "blog",
+    queries: { limit: 6, offset: 0 },
+  });
   // カテゴリーコンテンツの取得
   const categoryData = await client.get<CategoryData>({
     endpoint: "category",

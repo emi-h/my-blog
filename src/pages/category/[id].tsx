@@ -1,7 +1,6 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";

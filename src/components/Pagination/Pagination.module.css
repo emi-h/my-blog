@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.list li {
+  background-color: #eee;
+  margin: 0 0.5em;
+  border-radius: 5px;
+}
+.list li a {
+  display: inline-block;
+  padding: 1em;
+}
+.list li.current a {
+  background-color: #aaa;
+}
