@@ -12,6 +12,9 @@
 .colums {
   display: flex;
 }
+.content {
+  flex: 1;
+}
 .inner {
   width: 1160px;
   max-width: 100%;
@@ -74,11 +77,6 @@
   border-radius: 5px;
   border: 1px solid #ddd;
   background-color: #ddd;
-}
-
-.aside {
-  width: 300px;
-  margin-left: 20px;
 }
 
 /* .tags span:hover,

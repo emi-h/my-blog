@@ -1,0 +1,15 @@
+.aside {
+  width: 300px;
+  margin-left: 20px;
+}
+.category_title {
+  background-color: #eee;
+  margin: 0;
+  padding: 1em;
+}
+.category_list {
+  padding: 1em;
+}
+.category_list li {
+  margin-bottom: 12px;
+}
