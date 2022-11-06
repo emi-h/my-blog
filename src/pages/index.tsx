@@ -14,7 +14,7 @@ import { Category, CategoryData } from "src/types/Category";
 
 type Props = MicroCMSListResponse<Blog>;
 
-export const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
+const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
   blogData,
   categoryData,
 }) => {
