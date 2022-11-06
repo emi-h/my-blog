@@ -34,7 +34,7 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
               {blogData.contents.map((data) => {
                 return (
                   <li className={styles.card} key={data.id}>
-                    <Link href={"/"}>
+                    <Link href={`/blog/${data.id}`}>
                       <div className={styles.card_img}>
                         <Image
                           src={data.portfolio_img.url}

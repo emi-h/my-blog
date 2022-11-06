@@ -71,6 +71,44 @@
 .categoryAtricleList li {
   margin-bottom: 12px;
 }
+
+/* blog post */
+.blog_post {
+  width: 1160px;
+  max-width: 100%;
+  margin: 3rem auto 6rem;
+}
+.blog_post img {
+  max-width: 100%;
+}
+.blog_post h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+.blog_post h2 {
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #eee;
+  padding: 0.5em 1em;
+  margin-top: 4rem;
+}
+.blog_post .category span {
+  display: inline-block;
+  padding: 0 1em;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  border: 2px solid #aaa;
+}
+.blog_post pre {
+  font-size: 18px;
+  background: black;
+  color: #fff;
+  padding: 1em;
+}
+.blog_post a {
+  text-decoration: underline;
+}
+
 /* .tags span:hover,
 .tags span:focus,
 .tags span:active {
