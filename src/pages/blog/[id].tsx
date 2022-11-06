@@ -2,13 +2,18 @@ import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
+import { renderToc } from "src/libs/render-toc";
 import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";
 
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const Post: NextPage<Props> = (props) => {
+  // get the index info
+  const toc = renderToc(props.content);
+
   return (
     <>
       <Head>
@@ -24,6 +29,7 @@ const Post: NextPage<Props> = (props) => {
             </span>
             <span>{dayjs(props.createdAt).format("YYYY/MM/DD")}</span>
           </p>
+          {props.toc_visible && <TableOfContents toc={toc} />}
           <div dangerouslySetInnerHTML={{ __html: props.content }} />
         </div>
       </article>

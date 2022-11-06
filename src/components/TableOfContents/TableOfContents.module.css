@@ -1,0 +1,15 @@
+.toc {
+  padding: 1em;
+  margin: 3rem 0;
+  background-color: #eee;
+}
+.ttl {
+  font-size: 20px;
+  font-weight: bold;
+}
+.toc ul {
+  margin-top: 1rem;
+}
+.toc ul li {
+  padding: 0.5em;
+}

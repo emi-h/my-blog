@@ -8,4 +8,5 @@ export type Blog = {
   content: string;
   date: string;
   portfolio_img: { url: string };
+  toc_visible: boolean;
 };

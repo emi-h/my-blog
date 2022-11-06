@@ -92,6 +92,12 @@
   padding: 0.5em 1em;
   margin-top: 4rem;
 }
+.blog_post h3 {
+  display: inline-block;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 0.2em;
+  margin-top: 2rem;
+}
 .blog_post .category span {
   display: inline-block;
   padding: 0 1em;
