@@ -23,6 +23,7 @@ const BlogPageId: FC<{
     <div className={styles.inner}>
       <div className={styles.colums}>
         <div className={styles.content}>
+          <h2>ブログ記事一覧</h2>
           <BlogList blogData={blogData} />
           <Pagination totalCount={totalCount} currentPage={currentPage} />
         </div>

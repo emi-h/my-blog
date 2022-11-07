@@ -12,3 +12,21 @@
 .navList li a:hover {
   opacity: 0.8;
 }
+@media (max-width: 1023px) {
+  .navList {
+    display: none;
+  }
+  .navList.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    z-index: 9;
+  }
+  .navList {
+    padding: 4rem 16px;
+  }
+}

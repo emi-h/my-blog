@@ -11,7 +11,8 @@
   margin-top: 3rem;
 }
 .inner {
-  width: 1160px;
+  width: 1192px;
+  padding: 0 16px;
   max-width: 100%;
   margin: 3rem auto 6rem;
 }
@@ -88,7 +89,11 @@
   text-decoration: underline;
 }
 
-/* @media (max-width: 600px) {} */
+@media (max-width: 1023px) {
+  .colums {
+    flex-direction: column;
+  }
+}
 
 /* @media (prefers-color-scheme: dark) {
   .card,

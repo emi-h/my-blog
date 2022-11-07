@@ -1,11 +1,25 @@
 .about {
   margin: 3rem 0;
 }
+.container {
+  width: 1192px;
+  padding: 0 16px;
+  max-width: 100%;
+  margin: 0 auto;
+}
 .about section:not(:first-child) {
   margin-top: 6rem;
 }
 .about h2 {
   text-align: center;
+}
+.myIntro {
+  width: 420px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.myIntro p {
+  line-height: 2;
 }
 .myImageArea {
   margin-bottom: 2rem;
@@ -23,6 +37,11 @@
 }
 .sns a {
   text-decoration: underline;
+}
+.sns ul {
+  width: 420px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 .sns ul li {
   margin-top: 1em;
