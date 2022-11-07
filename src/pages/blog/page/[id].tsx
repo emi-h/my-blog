@@ -1,65 +1,31 @@
-import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
+import { BlogList } from "src/components/BlogList/BlogList";
 import { Pagination } from "src/components/Pagination/Pagination";
+import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";
+import { Category, CategoryData } from "src/types/Category";
 
 type Props = MicroCMSListResponse<Blog>;
 
 const PER_PAGE = 6;
 
-const BlogPageId: FC<{ blogData: Props; totalCount: number }> = ({
-  blogData,
-  totalCount,
-}) => {
+const BlogPageId: FC<{
+  blogData: Props;
+  categoryData: Category[];
+  totalCount: number;
+}> = ({ blogData, categoryData, totalCount }) => {
   return (
     <div className={styles.inner}>
       <div className={styles.colums}>
         <div className={styles.content}>
-          <ul className={styles.grid}>
-            {blogData.contents.map((data) => {
-              return (
-                <li className={styles.card} key={data.id}>
-                  <Link href={`/blog/${data.id}`}>
-                    <div className={styles.card_img}>
-                      <Image
-                        src={data.portfolio_img.url}
-                        alt="Picture of the author"
-                        fill
-                        sizes="100%"
-                      />
-                    </div>
-                    <div className={styles.card_description}>
-                      <div className={styles.card_content}>
-                        <p className={styles.card_categories}>
-                          <span>{data.category.category}</span>
-                        </p>
-                        <p className={styles.card_title}>{data.title}</p>
-                        <time
-                          dateTime={data.createdAt}
-                          className={styles.card_date}
-                        >
-                          {dayjs(data.createdAt).format("YYYY/MM/DD")}
-                        </time>
-                      </div>
-                      {/* <p className={styles.card_tags}>
-                            <span>タグ</span>
-                            <span>タグ</span>
-                            <span>タグ</span>
-                          </p> */}
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <BlogList blogData={blogData} />
           <Pagination totalCount={totalCount} />
         </div>
+        <Sidebar categoryData={categoryData} />
       </div>
     </div>
   );
@@ -95,12 +61,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = await client.getList<Blog>({
     endpoint: "blog",
-    queries: { limit: 5, offset: (id - 1) * 5 },
+    queries: { limit: 6, offset: (id - 1) * 5 },
+  });
+
+  // カテゴリーコンテンツの取得
+  const categoryData = await client.get<CategoryData>({
+    endpoint: "category",
   });
 
   return {
     props: {
       blogData: data,
+      categoryData: categoryData.contents,
       totalCount: data.totalCount,
     },
   };

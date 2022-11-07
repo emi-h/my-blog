@@ -1,9 +1,7 @@
-import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import { BlogList } from "src/components/BlogList/BlogList";
 import { Pagination } from "src/components/Pagination/Pagination";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
@@ -33,43 +31,7 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
         </div>
         <div className={styles.colums}>
           <div className={styles.content}>
-            <ul className={styles.grid}>
-              {blogData.contents.map((data) => {
-                return (
-                  <li className={styles.card} key={data.id}>
-                    <Link href={`/blog/${data.id}`}>
-                      <div className={styles.card_img}>
-                        <Image
-                          src={data.portfolio_img.url}
-                          alt="Picture of the author"
-                          fill
-                          sizes="100%"
-                        />
-                      </div>
-                      <div className={styles.card_description}>
-                        <div className={styles.card_content}>
-                          <p className={styles.card_categories}>
-                            <span>{data.category.category}</span>
-                          </p>
-                          <p className={styles.card_title}>{data.title}</p>
-                          <time
-                            dateTime={data.createdAt}
-                            className={styles.card_date}
-                          >
-                            {dayjs(data.createdAt).format("YYYY/MM/DD")}
-                          </time>
-                        </div>
-                        {/* <p className={styles.card_tags}>
-                            <span>タグ</span>
-                            <span>タグ</span>
-                            <span>タグ</span>
-                          </p> */}
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <BlogList blogData={blogData} />
             <Pagination totalCount={blogData.totalCount} />
           </div>
           <Sidebar categoryData={categoryData} />
