@@ -2,7 +2,7 @@
 
 ## Main packages
 
-microCMS
+microCMS  
 Next.js
 TypeScript
 
