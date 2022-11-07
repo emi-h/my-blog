@@ -1,0 +1,29 @@
+.about {
+  margin: 3rem 0;
+}
+.about section:not(:first-child) {
+  margin-top: 6rem;
+}
+.about h2 {
+  text-align: center;
+}
+.myImageArea {
+  margin-bottom: 2rem;
+}
+.myImage {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.myImageArea p {
+  margin-top: 1em;
+  text-align: center;
+}
+.sns a {
+  text-decoration: underline;
+}
+.sns ul li {
+  margin-top: 1em;
+}
