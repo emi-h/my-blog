@@ -7,3 +7,8 @@
   max-width: 100%;
   margin: 0 auto;
 }
+
+.iframe {
+  border: none;
+  width: 100%;
+}
