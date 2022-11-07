@@ -6,8 +6,6 @@ export const Pagination: FC<{ currentPage: number; totalCount: number }> = ({
   currentPage,
   totalCount,
 }) => {
-  //   console.log(page);
-
   const PER_PAGE = 6;
   // ページネーションのリスト数の配列を作る関数
   const range = (start: number, end: number) =>

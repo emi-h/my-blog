@@ -16,8 +16,6 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
   blogData,
   categoryData,
 }) => {
-  // console.log(blogData);
-
   return (
     <>
       <Head>

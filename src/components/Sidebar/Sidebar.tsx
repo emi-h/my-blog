@@ -4,8 +4,6 @@ import styles from "src/components/Sidebar/Sidebar.module.css";
 import { Category } from "src/types/Category";
 
 export const Sidebar: FC<{ categoryData: Category[] }> = ({ categoryData }) => {
-  // console.log(categoryData);
-
   return (
     <aside className={styles.aside}>
       <div>

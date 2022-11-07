@@ -10,7 +10,6 @@ type Props = MicroCMSListResponse<Blog>;
 
 const CategoryId: NextPage<Props> = (props) => {
   const blog = props.contents;
-  // console.log(blog);
 
   // カテゴリーに紐付いたコンテンツがない場合に表示
   if (blog.length === 0) {
