@@ -1,8 +1,14 @@
+.Linkunderline {
+  text-decoration: underline;
+}
 .colums {
   display: flex;
 }
 .content {
   flex: 1;
+}
+.content section:not(:first-child) {
+  margin-top: 3rem;
 }
 .inner {
   width: 1160px;
@@ -12,9 +18,16 @@
 .header {
   padding-bottom: 1rem;
 }
-
+.introSection p {
+  margin: 1em 0;
+}
 .categoryAtricleList li {
   margin-bottom: 12px;
+}
+
+.btnWrap {
+  margin: 3rem 0;
+  text-align: center;
 }
 
 /* blog post */

@@ -1,8 +1,9 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { BlogList } from "src/components/BlogList/BlogList";
-import { Pagination } from "src/components/Pagination/Pagination";
+import { Button } from "src/components/Button/Button";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
@@ -25,14 +26,31 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.inner}>
-        <div className={styles.header}>
-          <h2>blog</h2>
-          <p>記事合計：{blogData.totalCount}件</p>
-        </div>
         <div className={styles.colums}>
           <div className={styles.content}>
-            <BlogList blogData={blogData} />
-            <Pagination totalCount={blogData.totalCount} />
+            <section className={styles.introSection}>
+              <h2>このブログについて</h2>
+              <p>Next.js(TypeScript)とmicroCMSを使用しています。</p>
+              <p>
+                Githubにソースを公開していますので、よければのぞいてみてください:)
+                <br />
+                <Link
+                  className={styles.Linkunderline}
+                  href="https://github.com/emi-h/my-blog"
+                >
+                  ソースコードはこちら
+                </Link>
+              </p>
+            </section>
+            <section>
+              <div className={styles.header}>
+                <h2>Blog記事</h2>
+              </div>
+              <BlogList blogData={blogData} />
+              <div className={styles.btnWrap}>
+                <Button text="ブログ一覧を見る" href="blog/page/1" />
+              </div>
+            </section>
           </div>
           <Sidebar categoryData={categoryData} />
         </div>

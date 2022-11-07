@@ -7,11 +7,12 @@
   background-color: #eee;
   margin: 0 0.5em;
   border-radius: 5px;
+  overflow: hidden;
 }
 .list li a {
   display: inline-block;
   padding: 1em;
 }
-.list li.current a {
+.list li.currentPage a {
   background-color: #aaa;
 }

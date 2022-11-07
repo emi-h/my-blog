@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FC } from "react";
 import styles from "src/components/Pagination/Pagination.module.css";
 
-export const Pagination: FC<{ totalCount: number }> = ({ totalCount }) => {
+export const Pagination: FC<{ currentPage: number; totalCount: number }> = ({
+  currentPage,
+  totalCount,
+}) => {
   //   console.log(page);
 
   const PER_PAGE = 6;
@@ -15,7 +18,7 @@ export const Pagination: FC<{ totalCount: number }> = ({ totalCount }) => {
       {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
         <li
           key={index}
-          //     className={number === current ? "styles.current" : null}
+          className={currentPage == number ? styles.currentPage : undefined}
         >
           <Link href={`/blog/page/${number}`}>{number}</Link>
         </li>

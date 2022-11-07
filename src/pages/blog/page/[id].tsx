@@ -16,14 +16,15 @@ const PER_PAGE = 6;
 const BlogPageId: FC<{
   blogData: Props;
   categoryData: Category[];
+  currentPage: number;
   totalCount: number;
-}> = ({ blogData, categoryData, totalCount }) => {
+}> = ({ blogData, categoryData, currentPage, totalCount }) => {
   return (
     <div className={styles.inner}>
       <div className={styles.colums}>
         <div className={styles.content}>
           <BlogList blogData={blogData} />
-          <Pagination totalCount={totalCount} />
+          <Pagination totalCount={totalCount} currentPage={currentPage} />
         </div>
         <Sidebar categoryData={categoryData} />
       </div>
@@ -57,11 +58,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  const id = Number(context.params.id);
+  const pageId = Number(context.params.id);
 
   const data = await client.getList<Blog>({
     endpoint: "blog",
-    queries: { limit: 6, offset: (id - 1) * 5 },
+    queries: { limit: 6, offset: (pageId - 1) * 5 },
   });
 
   // カテゴリーコンテンツの取得
@@ -73,6 +74,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       blogData: data,
       categoryData: categoryData.contents,
+      currentPage: pageId,
       totalCount: data.totalCount,
     },
   };
