@@ -6,7 +6,7 @@
   display: inline-block;
   font-weight: bold;
   text-transform: capitalize;
-  padding: 1em;
+  padding: 1em 1.5em;
   transition: all 0.3s;
 }
 .navList li a:hover {

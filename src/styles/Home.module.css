@@ -21,13 +21,28 @@
 .introSection p {
   margin: 1em 0;
 }
-.categoryAtricleList li {
-  margin-bottom: 12px;
+.categoryAtricleList {
+  margin-top: 3rem;
+}
+.categoryAtricleList li:not(:first-child) {
+  margin-top: 2rem;
+}
+.categoryAtricleList li h3 {
+  margin: 0.5em 0;
+}
+.categoryAtricleList li p {
+  margin: 0.5em 0;
+}
+.categoryAtricleList li a:hover h3 {
+  text-decoration: underline;
 }
 
 .btnWrap {
   margin: 3rem 0;
   text-align: center;
+}
+.colorGray {
+  color: #aaa;
 }
 
 /* blog post */

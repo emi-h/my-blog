@@ -1,35 +1,52 @@
+import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Link from "next/link";
+import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";
-import { CategoryData } from "src/types/Category";
+import { Category, CategoryData } from "src/types/Category";
 
 type Props = MicroCMSListResponse<Blog>;
 
-const CategoryId: NextPage<Props> = (props) => {
-  const blog = props.contents;
+const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
+  categoryData,
+  data,
+}) => {
+  const posts = data.contents;
 
   // カテゴリーに紐付いたコンテンツがない場合に表示
-  if (blog.length === 0) {
+  if (posts.length === 0) {
     return (
       <>
-        <h2>カテゴリー記事一覧：{blog[0].category.category}</h2>
-        <div>ブログコンテンツがありません</div>;
+        <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
+        <div>記事がありません</div>;
       </>
     );
   }
   return (
     <div className={styles.inner}>
-      <h2>カテゴリー記事一覧：{blog[0].category.category}</h2>
-      <ul className={styles.categoryAtricleList}>
-        {blog.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.colums}>
+        <div className={styles.content}>
+          <p className={styles.colorGray}>記事数：{data.totalCount}件</p>
+          <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
+          <ul className={styles.categoryAtricleList}>
+            {posts.map((blog) => (
+              <li key={blog.id}>
+                <Link href={`/blog/${blog.id}`}>
+                  <h3>{blog.title}</h3>
+                  <p>{blog.content_excerpt}</p>
+                  <p className={styles.colorGray}>
+                    公開日:&nbsp;&nbsp;{dayjs(blog.date).format("YYYY/MM/DD")}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Sidebar categoryData={categoryData} />
+      </div>
     </div>
   );
 };
@@ -49,9 +66,7 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 };
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) {
     return {
       notFound: true,
@@ -62,7 +77,14 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
     endpoint: "blog",
     queries: { filters: `category[equals]${id}` },
   });
+  // カテゴリーコンテンツの取得
+  const categoryData = await client.get<CategoryData>({
+    endpoint: "category",
+  });
   return {
-    props: data,
+    props: {
+      categoryData: categoryData.contents,
+      data,
+    },
   };
 };
