@@ -11,7 +11,7 @@ import { Category, CategoryData } from "src/types/Category";
 
 type Props = MicroCMSListResponse<Blog>;
 
-const PER_PAGE = 6;
+const PER_PAGE = 9;
 
 const BlogPageId: FC<{
   blogData: Props;
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = await client.getList<Blog>({
     endpoint: "blog",
-    queries: { limit: 6, offset: (pageId - 1) * 5 },
+    queries: { limit: PER_PAGE, offset: (pageId - 1) * 5 },
   });
 
   // カテゴリーコンテンツの取得

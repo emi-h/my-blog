@@ -27,11 +27,12 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
         <div className={styles.colums}>
           <div className={styles.content}>
             <section className={styles.introSection}>
-              <h2>このブログについて</h2>
-              <p>Next.js(TypeScript)とmicroCMSを使用しています。</p>
+              <h2>このサイトについて</h2>
+              <p>Next.js(TypeScript)とmicroCMSを使用して制作しました。</p>
               <p>
                 Githubにソースを公開していますので、よければのぞいてみてください:)
-                <br />
+              </p>
+              <p>
                 <Link
                   className={styles.Linkunderline}
                   href="https://github.com/emi-h/my-blog"
