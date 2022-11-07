@@ -19,7 +19,7 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.inner}>
         <h1 className={styles.logo}>
-          <Link href="/">console.log(emi)</Link>
+          <Link href="/">console.log(emi);</Link>
         </h1>
         <Nav menu={menu} hendleNavClose={handleNavClose} />
         <BtnMenu menu={menu} handleClick={handleClick} />
