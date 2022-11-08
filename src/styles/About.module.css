@@ -13,7 +13,8 @@
 .about h2 {
   text-align: center;
 }
-.myIntro {
+.myIntro,
+.aboutSiteArea {
   width: 420px;
   max-width: 100%;
   margin: 0 auto;
@@ -22,7 +23,7 @@
   line-height: 2;
 }
 .myImageArea {
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 .myImage {
   width: 200px;
@@ -35,14 +36,16 @@
   margin-top: 1em;
   text-align: center;
 }
-.sns a {
+.snsList a {
   text-decoration: underline;
 }
-.sns ul {
-  width: 420px;
-  max-width: 100%;
-  margin: 0 auto;
-}
-.sns ul li {
+.snsList li {
   margin-top: 1em;
+}
+.aboutSiteArea {
+  line-height: 2;
+}
+.featuresList li::before {
+  content: "-";
+  margin-right: 5px;
 }

@@ -19,8 +19,11 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
   return (
     <>
       <Head>
-        <title>Emi&apos;s blog | Top</title>
-        <meta name="description" content="Emi's Blog" />
+        <title>Home | console.log(emi);</title>
+        <meta
+          name="description"
+          content="フロントエンドエンジニアemiのサイトトップページ"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.inner}>

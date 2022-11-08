@@ -17,8 +17,8 @@ const Post: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
-        <title>Emi H | {props.title}</title>
-        <meta name="description" content="Emi H's portfolio detail" />
+        <title>{props.title} | console.log(emi);</title>
+        <meta name="description" content={props.content_excerpt} />
       </Head>
       <article className={styles.blog_post}>
         <div className={styles.inner}>
@@ -43,7 +43,8 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   const data = await client.getList<Blog>({ endpoint: "blog" });
   const paths = data.contents.map((content) => `/blog/${content.id}`);
 
-  return { fallback: false, paths };
+  // falback:falseでは動かない
+  return { fallback: "blocking", paths };
 };
 
 export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
@@ -60,5 +61,6 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
   });
   return {
     props: data,
+    revalidate: 10,
   };
 };

@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
@@ -26,28 +27,35 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
     );
   }
   return (
-    <div className={styles.inner}>
-      <div className={styles.colums}>
-        <div className={styles.content}>
-          <p className={styles.colorGray}>記事数：{data.totalCount}件</p>
-          <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
-          <ul className={styles.categoryAtricleList}>
-            {posts.map((blog) => (
-              <li key={blog.id}>
-                <Link href={`/blog/${blog.id}`}>
-                  <h3>{blog.title}</h3>
-                  <p>{blog.content_excerpt}</p>
-                  <p className={styles.colorGray}>
-                    公開日:&nbsp;&nbsp;{dayjs(blog.date).format("YYYY/MM/DD")}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+    <>
+      <Head>
+        <title>{posts[0].category.category}記事一覧 | console.log(emi);</title>
+        <meta name="description" content={posts[0].category.category} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.inner}>
+        <div className={styles.colums}>
+          <div className={styles.content}>
+            <p className={styles.colorGray}>記事数：{data.totalCount}件</p>
+            <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
+            <ul className={styles.categoryAtricleList}>
+              {posts.map((blog) => (
+                <li key={blog.id}>
+                  <Link href={`/blog/${blog.id}`}>
+                    <h3>{blog.title}</h3>
+                    <p>{blog.content_excerpt}</p>
+                    <p className={styles.colorGray}>
+                      公開日:&nbsp;&nbsp;{dayjs(blog.date).format("YYYY/MM/DD")}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Sidebar categoryData={categoryData} />
         </div>
-        <Sidebar categoryData={categoryData} />
       </div>
-    </div>
+    </>
   );
 };
 
