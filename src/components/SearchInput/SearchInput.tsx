@@ -1,11 +1,10 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
 import styles from "src/components/SearchInput/SearchInput.module.css";
 
 export const SearchInput: FC = () => {
   const [search, setSearch] = useState("");
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     //     setSearch("");
   };
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

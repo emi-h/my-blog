@@ -53,7 +53,9 @@ const About = () => {
             <div className={styles.aboutSiteArea}>
               <h2>About this website</h2>
               <p>
-                Next.js×microCMSで制作
+                Next.js v13
+                <br />
+                microCMS
                 <br />
                 TypeScript <br />
                 Vercel
