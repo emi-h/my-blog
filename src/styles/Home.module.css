@@ -88,10 +88,29 @@
 .blog_post a {
   text-decoration: underline;
 }
+.blog_post p {
+  line-height: 2;
+  margin: 1em 0;
+}
+.blog_post ul li {
+  line-height: 2;
+}
+.blog_post ul li::before {
+  content: "■";
+  margin-right: 5px;
+}
 
 @media (max-width: 1023px) {
   .colums {
     flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .blog_post h2 {
+    font-size: 24px;
+  }
+  .blog_post h3 {
+    font-size: 18px;
   }
 }
 

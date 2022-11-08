@@ -3,7 +3,10 @@
   margin: 3rem 0;
   background-color: #eee;
   width: 500px;
-  max-width: 80%;
+  max-width: 100%;
+}
+.toc a {
+  text-decoration: underline;
 }
 .ttl {
   font-size: 20px;

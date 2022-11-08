@@ -20,7 +20,7 @@ const Post: NextPage<Props> = (props) => {
         <title>{props.title} | console.log(emi);</title>
         <meta name="description" content={props.content_excerpt} />
       </Head>
-      <article className={styles.blog_post}>
+      <article>
         <div className={styles.inner}>
           <h1>{props.title}</h1>
           <p>
@@ -30,7 +30,10 @@ const Post: NextPage<Props> = (props) => {
             <span>{dayjs(props.createdAt).format("YYYY/MM/DD")}</span>
           </p>
           {props.toc_visible && <TableOfContents toc={toc} />}
-          <div dangerouslySetInnerHTML={{ __html: props.content }} />
+          <div
+            className={styles.blog_post}
+            dangerouslySetInnerHTML={{ __html: props.content }}
+          />
         </div>
       </article>
     </>
