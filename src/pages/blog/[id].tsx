@@ -21,7 +21,7 @@ const Post: NextPage<Props> = (props) => {
         <meta name="description" content="Emi H's portfolio detail" />
       </Head>
       <article className={styles.blog_post}>
-        <div>
+        <div className={styles.inner}>
           <h1>{props.title}</h1>
           <p>
             <span className={styles.category}>
