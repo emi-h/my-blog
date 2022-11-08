@@ -3,7 +3,7 @@
 ## Main packages
 
 microCMS  
-Next.js
+Next.js  
 TypeScript
 
 Prettier
