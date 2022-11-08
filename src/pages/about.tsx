@@ -55,7 +55,8 @@ const About = () => {
               <p>
                 Next.js×microCMSで制作
                 <br />
-                TypeScript
+                TypeScript <br />
+                Vercel
               </p>
               <h3>機能</h3>
               <ul className={styles.featuresList}>

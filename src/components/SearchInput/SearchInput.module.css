@@ -1,0 +1,15 @@
+.search {
+  width: 100%;
+  display: flex;
+}
+.search input {
+  flex: 1;
+  font-size: 16px;
+  padding: 0.5em 1em;
+  border: 1px solid #aaa;
+}
+.search button {
+  width: 50px;
+  border-color: #aaa;
+  background-color: transparent;
+}
