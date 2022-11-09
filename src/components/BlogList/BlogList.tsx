@@ -9,6 +9,9 @@ import { Blog } from "src/types/Blog";
 type Props = MicroCMSListResponse<Blog>;
 
 export const BlogList: FC<{ blogData: Props }> = ({ blogData }) => {
+  if (blogData.contents.length === 0) {
+    return <div>記事は存在しません</div>;
+  }
   return (
     <ul className={styles.grid}>
       {blogData.contents.map((data) => {
