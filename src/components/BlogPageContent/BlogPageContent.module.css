@@ -1,0 +1,41 @@
+.content {
+  flex: 1;
+}
+.content section:not(:first-child) {
+  margin-top: 3rem;
+}
+.inner {
+  width: 1192px;
+  padding: 0 16px;
+  max-width: 100%;
+  margin: 3rem auto 6rem;
+}
+.header {
+  padding-bottom: 1rem;
+}
+.introSection p {
+  margin: 1em 0;
+}
+.categoryAtricleList {
+  margin-top: 3rem;
+}
+.categoryAtricleList li:not(:first-child) {
+  margin-top: 2rem;
+}
+.categoryAtricleList li h3 {
+  margin: 0.5em 0;
+}
+.categoryAtricleList li p {
+  margin: 0.5em 0;
+}
+.categoryAtricleList li a:hover h3 {
+  text-decoration: underline;
+}
+
+.btnWrap {
+  margin: 3rem 0;
+  text-align: center;
+}
+.colorGray {
+  color: #aaa;
+}

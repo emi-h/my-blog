@@ -5,7 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
-import styles from "src/styles/Home.module.css";
+import styles from "src/styles/Category.module.css";
 import { Blog } from "src/types/Blog";
 import { Category, CategoryData } from "src/types/Category";
 

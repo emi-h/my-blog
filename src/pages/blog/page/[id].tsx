@@ -1,9 +1,9 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { FC } from "react";
-import { BlogList } from "src/components/BlogList/BlogList";
-import { Pagination } from "src/components/Pagination/Pagination";
+import { FC, useState } from "react";
+import { BlogPageContent } from "src/components/BlogPageContent/BlogPageContent";
+import { SearchInput } from "src/components/SearchInput/SearchInput";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
@@ -18,6 +18,8 @@ const BlogPageId: FC<{
   currentPage: number;
   totalCount: number;
 }> = ({ blogData, categoryData, currentPage, totalCount }) => {
+  const [searchData, setSearchData] = useState<MicroCMSListResponse<Blog>>();
+
   // 全体のページ数
   const allPages = Math.ceil(totalCount / PER_PAGE);
 
@@ -31,13 +33,27 @@ const BlogPageId: FC<{
       <div className={styles.inner}>
         <div className={styles.colums}>
           <div className={styles.content}>
-            <p className={styles.colorGray}>
-              {currentPage}ページ&nbsp;&nbsp;/&nbsp;&nbsp;
-              {allPages}ページ中
-            </p>
-            <h2>ブログ記事一覧</h2>
-            <BlogList blogData={blogData} />
-            <Pagination totalCount={totalCount} currentPage={currentPage} />
+            <div className={styles.search}>
+              <SearchInput setSearchData={setSearchData} />
+            </div>
+            {searchData ? (
+              <BlogPageContent
+                blogData={searchData}
+                totalCount={totalCount}
+                // currentPage={currentPage}
+                allPages={allPages}
+                title="検索結果"
+                allNumber={searchData.contents.length}
+              />
+            ) : (
+              <BlogPageContent
+                blogData={blogData}
+                totalCount={totalCount}
+                currentPage={currentPage}
+                allPages={allPages}
+                title="ブログ記事"
+              />
+            )}
           </div>
           <Sidebar categoryData={categoryData} />
         </div>
