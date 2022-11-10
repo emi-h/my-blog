@@ -35,7 +35,12 @@ const Post: NextPage<Props> = (props) => {
             <span className={styles.category}>
               <span>{props.category.category}</span>
             </span>
-            <span>{dayjs(props.createdAt).format("YYYY.MM.DD")}</span>
+            <span className={styles.date}>
+              <span>
+                最終更新：{dayjs(props.revisedAt).format("YYYY.MM.DD")}
+              </span>
+              <span>公開：{dayjs(props.publishedAt).format("YYYY.MM.DD")}</span>
+            </span>
           </p>
           {props.toc_visible && <TableOfContents toc={toc} />}
           <div
