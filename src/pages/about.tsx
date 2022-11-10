@@ -65,9 +65,9 @@ const About = () => {
                 <li>Static Site Generation</li>
                 <li>カテゴリ機能</li>
                 <li>ページネーション(ブログページ)</li>
+                <li>検索機能(ブログページ)</li>
                 <li>目次(ブログ詳細ページ)</li>
                 <li>お問合せフォーム : Noway form</li>
-                <li>サイト内検索機能</li>
                 <li>404ページ</li>
                 <li>管理画面プレビュー</li>
               </ul>
