@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params.id;
   const data = await client.getList<Blog>({
     endpoint: "blog",
-    queries: { filters: `category[equals]${id}` },
+    queries: { filters: `category[equals]${id}`, limit: 20 },
   });
   // カテゴリーコンテンツの取得
   const categoryData = await client.get<CategoryData>({
