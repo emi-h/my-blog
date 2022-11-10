@@ -3,10 +3,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { FC, useState } from "react";
 import { BlogPageContent } from "src/components/BlogPageContent/BlogPageContent";
+import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
 import { SearchInput } from "src/components/SearchInput/SearchInput";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
-import styles from "src/styles/Home.module.css";
+import styles from "src/styles/Blog.module.css";
 import { Blog } from "src/types/Blog";
 import { Category, CategoryData } from "src/types/Category";
 
@@ -31,6 +32,7 @@ const BlogPageId: FC<{
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.inner}>
+        <Breadcrumb pageTitle="Blog" />
         <div className={styles.colums}>
           <div className={styles.content}>
             <div className={styles.search}>

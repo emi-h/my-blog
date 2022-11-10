@@ -3,6 +3,7 @@ import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Category.module.css";
@@ -34,18 +35,28 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.inner}>
+        <Breadcrumb pageTitle="カテゴリー" />
         <div className={styles.colums}>
           <div className={styles.content}>
-            <p className={styles.colorGray}>記事数：{data.totalCount}件</p>
             <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
+            <p className={styles.colorGray}>記事数：{data.totalCount}件</p>
             <ul className={styles.categoryAtricleList}>
               {posts.map((blog) => (
                 <li key={blog.id}>
                   <Link href={`/blog/${blog.id}`}>
                     <h3>{blog.title}</h3>
-                    <p>{blog.content_excerpt}</p>
-                    <p className={styles.colorGray}>
-                      公開日:&nbsp;&nbsp;{dayjs(blog.date).format("YYYY/MM/DD")}
+                    <p className={styles.content_excerpt}>
+                      {blog.content_excerpt}
+                    </p>
+                    <p className={styles.date}>
+                      <span>
+                        最終更新:&nbsp;&nbsp;
+                        {dayjs(blog.revisedAt).format("YYYY.MM.DD")}
+                      </span>
+                      <span>
+                        公開:&nbsp;&nbsp;
+                        {dayjs(blog.publishedAt).format("YYYY.MM.DD")}
+                      </span>
                     </p>
                   </Link>
                 </li>

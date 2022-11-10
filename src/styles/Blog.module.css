@@ -1,0 +1,30 @@
+.Linkunderline {
+  text-decoration: underline;
+}
+.colums {
+  display: flex;
+  margin-top: 2rem;
+}
+.content {
+  flex: 1;
+}
+.content section:not(:first-child) {
+  margin-top: 3rem;
+}
+.inner {
+  width: 1192px;
+  padding: 0 16px;
+  max-width: 100%;
+  margin: 2rem auto 6rem;
+}
+
+.btnWrap {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .colums {
+    flex-direction: column;
+  }
+}
