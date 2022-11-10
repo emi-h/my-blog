@@ -33,7 +33,7 @@ export const BlogList: FC<{ blogData: Props }> = ({ blogData }) => {
                   </p>
                   <p className={styles.card_title}>{data.title}</p>
                   <time dateTime={data.createdAt} className={styles.card_date}>
-                    {dayjs(data.createdAt).format("YYYY/MM/DD")}
+                    {dayjs(data.createdAt).format("YYYY.MM.DD")}
                   </time>
                 </div>
                 {/* <p className={styles.card_tags}>

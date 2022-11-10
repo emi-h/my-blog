@@ -1,0 +1,13 @@
+.breadcrumb {
+  display: flex;
+}
+.breadcrumb a {
+  text-decoration: underline;
+}
+.breadcrumb li:not(:last-child)::after {
+  content: ">";
+  padding-left: 0.5em;
+}
+.breadcrumb li:not(:last-child) {
+  margin-right: 0.5em;
+}

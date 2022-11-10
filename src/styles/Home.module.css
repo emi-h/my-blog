@@ -14,7 +14,20 @@
   width: 1192px;
   padding: 0 16px;
   max-width: 100%;
-  margin: 3rem auto 6rem;
+  margin: 2rem auto 6rem;
+}
+.category span {
+  display: inline-block;
+  padding: 0 1em;
+  margin-right: 0.5rem;
+  border: 2px solid #ccc;
+}
+.date,
+.date span {
+  display: inline-block;
+}
+.date span:not(:first-child) {
+  margin-left: 1em;
 }
 .introSection p {
   line-height: 2;
@@ -49,7 +62,7 @@
   display: inline-block;
   border-bottom: 3px solid #eee;
   padding-bottom: 0.2em;
-  margin-top: 2rem;
+  margin: 0.5em 0;
 }
 .blog_post .category span {
   display: inline-block;
@@ -63,6 +76,7 @@
   background: black;
   color: #fff;
   padding: 1em;
+  overflow: auto;
 }
 .blog_post a {
   text-decoration: underline;
