@@ -21,8 +21,15 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
   if (posts.length === 0) {
     return (
       <>
-        <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
-        <div>記事がありません</div>;
+        <div className={styles.inner}>
+          <div className={styles.colums}>
+            <div className={styles.content}>
+              {/* <h2>カテゴリー記事一覧：{posts[0].category.category}</h2> */}
+              <div>記事がありません</div>
+            </div>
+            <Sidebar categoryData={categoryData} />
+          </div>
+        </div>
       </>
     );
   }
