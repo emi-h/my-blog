@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
 import styles from "src/styles/About.module.css";
 
 const About = () => {
@@ -13,6 +14,7 @@ const About = () => {
       </Head>
       <div className={styles.about}>
         <div className={styles.container}>
+          <Breadcrumb pageTitle="About me" />
           <section>
             <h2>About me</h2>
             <div className={styles.myImageArea}>

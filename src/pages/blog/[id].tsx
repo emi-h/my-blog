@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
 import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
 import { renderToc } from "src/libs/render-toc";
@@ -20,22 +21,34 @@ const Post: NextPage<Props> = (props) => {
         <title>{props.title} | console.log(emi);</title>
         <meta name="description" content={props.content_excerpt} />
       </Head>
-      <article>
-        <div className={styles.inner}>
+      <div className={styles.inner}>
+        <Breadcrumb
+          blogPageInfo={{
+            blogTitle: props.title,
+            categoryId: props.category.id,
+            categoryName: props.category.category,
+          }}
+        />
+        <article>
           <h1>{props.title}</h1>
           <p>
             <span className={styles.category}>
               <span>{props.category.category}</span>
             </span>
-            <span>{dayjs(props.createdAt).format("YYYY/MM/DD")}</span>
+            <span className={styles.date}>
+              <span>
+                最終更新：{dayjs(props.revisedAt).format("YYYY.MM.DD")}
+              </span>
+              <span>公開：{dayjs(props.publishedAt).format("YYYY.MM.DD")}</span>
+            </span>
           </p>
           {props.toc_visible && <TableOfContents toc={toc} />}
           <div
             className={styles.blog_post}
             dangerouslySetInnerHTML={{ __html: props.content }}
           />
-        </div>
-      </article>
+        </article>
+      </div>
     </>
   );
 };

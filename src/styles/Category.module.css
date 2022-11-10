@@ -4,82 +4,41 @@
 .Linkunderline {
   text-decoration: underline;
 }
-.colums {
-  display: flex;
-}
-.content {
-  flex: 1;
-}
-.content section:not(:first-child) {
-  margin-top: 3rem;
-}
 .inner {
   width: 1192px;
   padding: 0 16px;
   max-width: 100%;
-  margin: 3rem auto 6rem;
+  margin: 2rem auto 6rem;
 }
-.introSection p {
-  line-height: 2;
+.colums {
+  display: flex;
+  margin-top: 3rem;
+}
+.content {
+  flex: 1;
 }
 
-.btnWrap {
-  margin: 3rem 0;
-  text-align: center;
+.content h2 {
+  margin: 0.5em 0;
 }
-
-/* blog post */
-.blog_post {
-  width: 1160px;
-  max-width: 100%;
-  margin: 3rem auto 6rem;
+.content h3,
+.content_excerpt {
+  margin: 0.5em 0;
 }
-.blog_post img {
-  max-width: 100%;
+.date {
+  color: #aaa;
 }
-.blog_post h1 {
-  font-size: 28px;
-  font-weight: bold;
-}
-.blog_post h2 {
-  font-size: 28px;
-  font-weight: bold;
-  background-color: #eee;
-  padding: 0.5em 1em;
-  margin-top: 4rem;
-}
-.blog_post h3 {
+.date span {
   display: inline-block;
-  border-bottom: 3px solid #eee;
-  padding-bottom: 0.2em;
-  margin-top: 2rem;
 }
-.blog_post .category span {
-  display: inline-block;
-  padding: 0 1em;
-  border-radius: 5px;
-  margin-right: 0.5rem;
-  border: 2px solid #aaa;
+.date span:not(:first-child) {
+  margin-left: 1em;
 }
-.blog_post pre {
-  font-size: 18px;
-  background: black;
-  color: #fff;
-  padding: 1em;
+.categoryAtricleList {
+  margin-top: 3rem;
 }
-.blog_post a {
-  text-decoration: underline;
-}
-.blog_post p {
-  line-height: 2;
-  margin: 1em 0;
-}
-.blog_post ul li {
-  line-height: 2;
-}
-.blog_post ul li::before {
-  content: "■";
-  margin-right: 5px;
+.categoryAtricleList li:not(:first-child) {
+  margin-top: 3rem;
 }
 
 @media (max-width: 1023px) {
@@ -87,24 +46,3 @@
     flex-direction: column;
   }
 }
-@media (max-width: 600px) {
-  .blog_post h2 {
-    font-size: 24px;
-  }
-  .blog_post h3 {
-    font-size: 18px;
-  }
-}
-
-/* @media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
-} */

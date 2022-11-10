@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
 import styles from "src/styles/Contact.module.css";
 
 const Contact = () => {
@@ -11,7 +12,8 @@ const Contact = () => {
       </Head>
       <div className={styles.contact}>
         <div className={styles.container}>
-          <div>
+          <Breadcrumb pageTitle="Contact" />
+          <div className={styles.formArea}>
             <iframe
               className={styles.iframe}
               height="734px"
