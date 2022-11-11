@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import hljs from "highlight.js";
 
 export const renderToc = (body) => {
   const $ = cheerio.load(body);
@@ -9,4 +10,15 @@ export const renderToc = (body) => {
   }));
 
   return toc;
+};
+export const renderHighlightedBody = (body) => {
+  const $ = cheerio.load(body);
+
+  $("pre code").each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass("hljs")
+  })
+
+  return $.html();
 };
