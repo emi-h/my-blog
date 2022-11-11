@@ -15,6 +15,7 @@
     "dayjs": "^1.11.6",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
+    "highlight.js": "^11.6.0",
     "microcms-js-sdk": "^2.3.0",
     "next": "13.0.2",
     "react": "18.2.0",
@@ -22,6 +23,8 @@
     "typescript": "^4.8.4"
   },
   "devDependencies": {
+    "@types/cheerio": "^0.22.31",
+    "@types/highlightjs": "^9.12.2",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "cheerio": "^1.0.0-rc.12",
