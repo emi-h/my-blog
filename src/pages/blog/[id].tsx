@@ -3,8 +3,8 @@ import 'highlight.js/styles/hybrid.css';
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
+import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
 import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
 import { renderHighlightedBody, renderToc } from "src/libs/render-toc";
@@ -21,10 +21,7 @@ const Post: NextPage<Props> = (props) => {
 
   return (
     <>
-      <Head>
-        <title>{props.title} | console.log(emi);</title>
-        <meta name="description" content={props.content_excerpt} />
-      </Head>
+      <CommonMeta title={props.title} description={props.content_excerpt} />
       <div className={styles.inner}>
         <Breadcrumb
           blogPageInfo={{

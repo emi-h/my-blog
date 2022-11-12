@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
+import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Category.module.css";
@@ -22,6 +22,7 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
   if (posts.length === 0) {
     return (
       <>
+        <CommonMeta title="Category" />
         <div className={styles.inner}>
           <div className={styles.colums}>
             <div className={styles.content}>
@@ -36,11 +37,10 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
   }
   return (
     <>
-      <Head>
-        <title>{posts[0].category.category}記事一覧 | console.log(emi);</title>
-        <meta name="description" content={posts[0].category.category} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CommonMeta
+        title={`${posts[0].category.category}カテゴリー`}
+        description={`${posts[0].category.category}カテゴリー記事`}
+      />
       <div className={styles.inner}>
         <Breadcrumb pageTitle="カテゴリー" />
         <div className={styles.colums}>
