@@ -1,15 +1,11 @@
-import Head from "next/head";
 import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
+import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
 import styles from "src/styles/Contact.module.css";
 
 const Contact = () => {
   return (
     <>
-      <Head>
-        <title>Contact | console.log(emi);</title>
-        <meta name="description" content="お問い合わせページ" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CommonMeta title="Contact" description="お問い合わせページ" />
       <div className={styles.contact}>
         <div className={styles.container}>
           <Breadcrumb pageTitle="Contact" />

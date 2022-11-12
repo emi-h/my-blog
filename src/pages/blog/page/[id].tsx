@@ -1,9 +1,9 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
 import { FC, useState } from "react";
 import { BlogPageContent } from "src/components/BlogPageContent/BlogPageContent";
 import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
+import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
 import { SearchInput } from "src/components/SearchInput/SearchInput";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
@@ -26,11 +26,7 @@ const BlogPageId: FC<{
 
   return (
     <>
-      <Head>
-        <title>ブログ記事一覧 | console.log(emi);</title>
-        <meta name="description" content="ブログ記事一覧" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CommonMeta title="ブログ記事一覧" description="ブログ記事一覧です。" />
       <div className={styles.inner}>
         <Breadcrumb pageTitle="Blog" />
         <div className={styles.colums}>

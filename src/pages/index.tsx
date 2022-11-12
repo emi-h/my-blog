@@ -1,9 +1,9 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import { BlogList } from "src/components/BlogList/BlogList";
 import { Button } from "src/components/Button/Button";
+import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
 import { Sidebar } from "src/components/Sidebar/Sidebar";
 import { client } from "src/libs/microCMSClient";
 import styles from "src/styles/Home.module.css";
@@ -18,14 +18,10 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
 }) => {
   return (
     <>
-      <Head>
-        <title>Home | console.log(emi);</title>
-        <meta
-          name="description"
-          content="フロントエンドエンジニアemiのサイトトップページ"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CommonMeta
+        title="Home"
+        description="フロントエンドエンジニアemiのサイトトップページ"
+      />
       <div className={styles.inner}>
         <div className={styles.colums}>
           <div className={styles.content}>

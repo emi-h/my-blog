@@ -1,17 +1,13 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
+import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
 import styles from "src/styles/About.module.css";
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>About | console.log(emi);</title>
-        <meta name="description" content="自己紹介とサイトについて" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CommonMeta title="About" description="自己紹介とサイトについて" />
       <div className={styles.about}>
         <div className={styles.container}>
           <Breadcrumb pageTitle="About me" />
