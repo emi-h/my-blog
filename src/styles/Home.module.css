@@ -92,6 +92,10 @@
   content: "■";
   margin-right: 5px;
 }
+.blog_post ol {
+  line-height: 2;
+  list-style: decimal inside;
+}
 
 @media (max-width: 1023px) {
   .colums {
