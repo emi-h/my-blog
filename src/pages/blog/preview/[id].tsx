@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
 import { renderToc } from "src/libs/render-toc";
@@ -12,8 +13,12 @@ const PreviewPage: NextPage<Props> = (props) => {
   // get the index info
   const toc = renderToc(props.content);
 
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>ローディング中...</div>;
+  }
   return (
-    <>
+    <div className={styles.inner}>
       <p className={styles.preview}>これはプレビューです</p>
       <article>
         <h1>{props.title}</h1>
@@ -32,7 +37,7 @@ const PreviewPage: NextPage<Props> = (props) => {
           dangerouslySetInnerHTML={{ __html: props.content }}
         />
       </article>
-    </>
+    </div>
   );
 };
 
@@ -81,6 +86,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       props: data,
     };
   } catch (e) {
-    return { props: { notFound: false } };
+    return { props: { notFound: true } };
   }
 };
