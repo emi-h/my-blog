@@ -2,16 +2,17 @@ import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
+// import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
-import { renderToc } from "src/libs/render-toc";
+// import { renderToc } from "src/libs/render-toc";
 import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";
 
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 const PreviewPage: NextPage<Props> = (props) => {
   // get the index info
-  const toc = renderToc(props.content);
+  // const toc = renderToc(props.content);
+// console.log(typeof props.content);
 
   const router = useRouter();
   if (router.isFallback) {
@@ -31,7 +32,7 @@ const PreviewPage: NextPage<Props> = (props) => {
             <span>公開：{dayjs(props.publishedAt).format("YYYY.MM.DD")}</span>
           </span>
         </p>
-        {props.toc_visible && <TableOfContents toc={toc} />}
+        {/* {props.toc_visible && <TableOfContents toc={toc} />} */}
         <div
           className={styles.blog_post}
           dangerouslySetInnerHTML={{ __html: props.content }}
