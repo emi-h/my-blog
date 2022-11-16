@@ -1,0 +1,31 @@
+.title {
+  margin-bottom: 2rem;
+}
+.colums {
+  display: flex;
+}
+.content {
+  flex: 1;
+}
+.content section:not(:first-child) {
+  margin-top: 3rem;
+}
+.inner {
+  width: 1192px;
+  padding: 0 16px;
+  max-width: 100%;
+  margin: 2rem auto 6rem;
+}
+.titleList {
+  padding-left: 2em;
+  line-height: 2;
+}
+.categoryList a {
+  text-decoration: underline;
+}
+.categoryList:not(:first-child) {
+  margin-top: 2rem;
+}
+.categoryList > li {
+  font-weight: bold;
+}
