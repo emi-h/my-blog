@@ -1,3 +1,6 @@
+.date {
+  color: #aaa;
+}
 .Linkunderline {
   text-decoration: underline;
 }
@@ -57,12 +60,12 @@
   background-color: #eee;
   padding: 0.5em 1em;
   margin-top: 4rem;
+  border-left: 8px solid #000;
 }
 .blog_post h3 {
-  display: inline-block;
-  border-bottom: 3px solid #eee;
-  padding-bottom: 0.2em;
-  margin: 0.5em 0;
+  border-left: 4px solid #000;
+  padding: 0.5em 1em;
+  margin: 2em 0;
 }
 .blog_post .category span {
   display: inline-block;
@@ -85,7 +88,12 @@
   line-height: 2;
   margin: 1em 0;
 }
-.blog_post ul li {
+.blog_post img {
+  margin: 1rem 0;
+}
+.blog_post ol,
+.blog_post ul {
+  margin: 2rem 1em;
   line-height: 2;
 }
 .blog_post ul li::before {
@@ -93,8 +101,14 @@
   margin-right: 5px;
 }
 .blog_post ol {
-  line-height: 2;
   list-style: decimal inside;
+}
+
+.blog_post blockquote {
+  border-left: 8px solid #aaa;
+  margin: 0;
+  padding: 1em;
+  background: #eee;
 }
 
 .preview {
