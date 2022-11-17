@@ -83,6 +83,7 @@
 }
 .blog_post a {
   text-decoration: underline;
+  word-wrap: break-word;
 }
 .blog_post p {
   line-height: 2;

@@ -1,5 +1,6 @@
 .breadcrumb {
   display: flex;
+  flex-wrap: wrap;
 }
 .breadcrumb a {
   text-decoration: underline;

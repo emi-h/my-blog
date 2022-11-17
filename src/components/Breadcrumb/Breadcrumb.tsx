@@ -19,7 +19,9 @@ export const Breadcrumb: FC<Props> = ({ blogPageInfo, pageTitle }) => {
       {blogPageInfo ? (
         <>
           <li>
-            <Link href={`/category/${blogPageInfo.categoryId}`}>カテゴリ</Link>
+            <Link href={`/category/${blogPageInfo.categoryId}`}>
+              {blogPageInfo.categoryName}
+            </Link>
           </li>
           <li>{blogPageInfo.blogTitle}</li>
         </>
