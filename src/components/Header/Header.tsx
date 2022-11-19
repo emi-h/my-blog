@@ -21,7 +21,7 @@ export const Header = () => {
         <h1 className={styles.logo}>
           <Link href="/">console.log(emi);</Link>
         </h1>
-        <Nav menu={menu} hendleNavClose={handleNavClose} />
+        <Nav menu={menu} handleNavClose={handleNavClose} />
         <BtnMenu menu={menu} handleClick={handleClick} />
       </div>
     </header>

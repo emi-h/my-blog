@@ -9,9 +9,9 @@ const navList: { href: string; pageName: string }[] = [
 ];
 
 export const Nav: FC<{
-  hendleNavClose: (e: React.MouseEvent<HTMLInputElement>) => void;
+  handleNavClose: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   menu: boolean;
-}> = ({ hendleNavClose, menu }) => {
+}> = ({ handleNavClose, menu }) => {
   const OpenStyle = menu ? styles.open : undefined;
 
   return (
@@ -19,7 +19,7 @@ export const Nav: FC<{
       {navList.map((list) => {
         return (
           <li key={list.pageName}>
-            <Link href={list.href} onClick={hendleNavClose}>
+            <Link href={list.href} onClick={handleNavClose}>
               {list.pageName}
             </Link>
           </li>
