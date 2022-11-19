@@ -1,7 +1,29 @@
 .footer {
   width: 100%;
   text-align: center;
-  padding: 1rem;
+}
+.inner {
+  width: 1192px;
+  padding: 0 16px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.navArea {
+  margin: 1em 0;
+}
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+.nav li {
+  padding: 0.5em 1em;
+}
+.nav li a {
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+.copyright {
+  padding: 1em 0;
   background-color: #eee;
 }
 @media (max-width: 600px) {
