@@ -1,4 +1,4 @@
-import 'highlight.js/styles/hybrid.css';
+import "highlight.js/styles/hybrid.css";
 
 import dayjs from "dayjs";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
@@ -14,10 +14,9 @@ import { Blog } from "src/types/Blog";
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const Post: NextPage<Props> = (props) => {
-  
   // get the index info
   const toc = renderToc(props.content);
-  const highlightedBody =renderHighlightedBody(props.content)
+  const highlightedBody = renderHighlightedBody(props.content);
 
   return (
     <>
@@ -67,16 +66,19 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
   context
 ) => {
+  console.log(context);
+
   if (!context.params) {
     return {
       notFound: true,
     };
   }
+
   const data = await client.getListDetail<Blog>({
     contentId: context.params.id,
     endpoint: "blog",
   });
-    
+
   return {
     props: data,
     revalidate: 10,

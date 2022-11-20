@@ -10,12 +10,12 @@ import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";
 import { Category, CategoryData } from "src/types/Category";
 
-type Props = MicroCMSListResponse<Blog>;
+type Props = {
+  blogData: MicroCMSListResponse<Blog>;
+  categoryData: MicroCMSListResponse<Category>;
+};
 
-const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
-  blogData,
-  categoryData,
-}) => {
+const Home: NextPage<Props> = ({ blogData, categoryData }) => {
   return (
     <>
       <CommonMeta
@@ -50,7 +50,7 @@ const Home: NextPage<{ blogData: Props; categoryData: Category[] }> = ({
               </div>
             </section>
           </div>
-          <Sidebar categoryData={categoryData} />
+          <Sidebar categoryData={categoryData.contents} />
         </div>
       </div>
     </>
@@ -66,14 +66,14 @@ export const getStaticProps: GetStaticProps = async () => {
     queries: { limit: 6, offset: 0 },
   });
   // カテゴリーコンテンツの取得
-  const categoryData = await client.get<CategoryData>({
+  const categoryData = await client.getList<CategoryData>({
     endpoint: "category",
   });
 
   return {
     props: {
       blogData,
-      categoryData: categoryData.contents,
+      categoryData,
     },
   };
 };
