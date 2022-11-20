@@ -20,12 +20,14 @@
   padding-left: 2em;
   line-height: 2;
 }
-.categoryList a {
+.list a {
   text-decoration: underline;
+  text-transform: capitalize;
 }
-.categoryList:not(:first-child) {
+.list:not(:first-child) {
   margin-top: 2rem;
 }
-.categoryList > li {
+.list > li {
   font-weight: bold;
+  margin-bottom: 1em;
 }

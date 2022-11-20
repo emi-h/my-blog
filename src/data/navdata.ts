@@ -4,3 +4,8 @@ export const headerNavList: { href: string; pageName: string }[] = [
   { href: "/sitemap", pageName: "sitemap" },
   { href: "/contact", pageName: "contact" },
 ];
+
+export const footerNavList: { href: string; pageName: string }[] = [
+  { href: "/privacyPolicy", pageName: "privacy policy" },
+  { href: "/sitemap", pageName: "sitemap" },
+];

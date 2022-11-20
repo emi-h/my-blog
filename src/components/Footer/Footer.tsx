@@ -1,11 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "src/components/Footer/Footer.module.css";
-
-const navList: { href: string; pageName: string }[] = [
-  { href: "/privacyPolicy", pageName: "privacy policy" },
-  { href: "/sitemap", pageName: "sitemap" },
-];
+import { footerNavList } from "src/data/navdata";
 
 export const Footer = () => {
   return (
@@ -13,7 +9,7 @@ export const Footer = () => {
       <div className={styles.inner}>
         <div className={styles.navArea}>
           <ul className={styles.nav}>
-            {navList.map((list) => {
+            {footerNavList.map((list) => {
               return (
                 <li key={list.pageName}>
                   <Link href={list.href}>{list.pageName}</Link>
