@@ -10,13 +10,13 @@ import styles from "src/styles/Category.module.css";
 import { Blog } from "src/types/Blog";
 import { Category, CategoryData } from "src/types/Category";
 
-type Props = MicroCMSListResponse<Blog>;
+type Props = {
+  blogData: MicroCMSListResponse<Blog>;
+  categoryData: MicroCMSListResponse<Category>;
+};
 
-const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
-  categoryData,
-  data,
-}) => {
-  const posts = data.contents;
+const CategoryId: NextPage<Props> = ({ blogData, categoryData }) => {
+  const posts = blogData.contents;
 
   // カテゴリーに紐付いたコンテンツがない場合に表示
   if (posts.length === 0) {
@@ -24,17 +24,18 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
       <>
         <CommonMeta title="Category" />
         <div className={styles.inner}>
+          <Breadcrumb pageTitle="カテゴリー" />
           <div className={styles.colums}>
             <div className={styles.content}>
-              {/* <h2>カテゴリー記事一覧：{posts[0].category.category}</h2> */}
               <div>記事がありません</div>
             </div>
-            <Sidebar categoryData={categoryData} />
+            <Sidebar categoryData={categoryData.contents} />
           </div>
         </div>
       </>
     );
   }
+
   return (
     <>
       <CommonMeta
@@ -42,11 +43,11 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
         description={`${posts[0].category.category}カテゴリー記事`}
       />
       <div className={styles.inner}>
-        <Breadcrumb pageTitle="カテゴリー" />
+        <Breadcrumb pageTitle={`カテゴリー：${posts[0].category.category}`} />
         <div className={styles.colums}>
           <div className={styles.content}>
             <h2>カテゴリー記事一覧：{posts[0].category.category}</h2>
-            <p className={styles.colorGray}>記事数：{data.totalCount}件</p>
+            <p className={styles.colorGray}>記事数：{blogData.totalCount}件</p>
             <ul className={styles.categoryAtricleList}>
               {posts.map((blog) => (
                 <li key={blog.id}>
@@ -70,7 +71,7 @@ const CategoryId: NextPage<{ categoryData: Category[]; data: Props }> = ({
               ))}
             </ul>
           </div>
-          <Sidebar categoryData={categoryData} />
+          <Sidebar categoryData={categoryData.contents} />
         </div>
       </div>
     </>
@@ -91,7 +92,6 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   return { fallback: false, paths };
 };
 
-// データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params) {
     return {
@@ -99,18 +99,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
   const id = context.params.id;
-  const data = await client.getList<Blog>({
+  const blogData = await client.getList<Blog>({
     endpoint: "blog",
     queries: { filters: `category[equals]${id}`, limit: 20 },
   });
   // カテゴリーコンテンツの取得
-  const categoryData = await client.get<CategoryData>({
+  const categoryData = await client.getList<CategoryData>({
     endpoint: "category",
   });
   return {
     props: {
-      categoryData: categoryData.contents,
-      data,
+      blogData,
+      categoryData,
     },
   };
 };

@@ -37,6 +37,12 @@
 .categoryAtricleList {
   margin-top: 3rem;
 }
+.categoryAtricleList a {
+  transition: all 0.3s;
+}
+.categoryAtricleList a:hover {
+  text-decoration: underline;
+}
 .categoryAtricleList li:not(:first-child) {
   margin-top: 3rem;
 }

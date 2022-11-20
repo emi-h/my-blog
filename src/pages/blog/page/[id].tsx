@@ -11,18 +11,23 @@ import styles from "src/styles/Blog.module.css";
 import { Blog } from "src/types/Blog";
 import { Category, CategoryData } from "src/types/Category";
 
-type Props = MicroCMSListResponse<Blog>;
-
-const BlogPageId: FC<{
-  blogData: Props;
-  categoryData: Category[];
+type Props = {
+  blogData: MicroCMSListResponse<Blog>;
+  categoryData: MicroCMSListResponse<Category>;
   currentPage: number;
-  totalCount: number;
-}> = ({ blogData, categoryData, currentPage, totalCount }) => {
+  totalArticleCount: number;
+};
+
+const BlogPageId: FC<Props> = ({
+  blogData,
+  categoryData,
+  currentPage,
+  totalArticleCount,
+}) => {
   const [searchData, setSearchData] = useState<MicroCMSListResponse<Blog>>();
 
   // 全体のページ数
-  const allPages = Math.ceil(totalCount / PER_PAGE);
+  const totalPages = Math.ceil(totalArticleCount / PER_PAGE);
 
   return (
     <>
@@ -37,23 +42,23 @@ const BlogPageId: FC<{
             {searchData ? (
               <BlogPageContent
                 blogData={searchData}
-                totalCount={totalCount}
+                totalArticleCount={totalArticleCount}
                 // currentPage={currentPage}
-                allPages={allPages}
+                totalPages={totalPages}
                 title="検索結果"
                 allNumber={searchData.contents.length}
               />
             ) : (
               <BlogPageContent
                 blogData={blogData}
-                totalCount={totalCount}
+                totalArticleCount={totalArticleCount}
                 currentPage={currentPage}
-                allPages={allPages}
+                totalPages={totalPages}
                 title="ブログ記事"
               />
             )}
           </div>
-          <Sidebar categoryData={categoryData} />
+          <Sidebar categoryData={categoryData.contents} />
         </div>
       </div>
     </>
@@ -66,9 +71,6 @@ const PER_PAGE = 9;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const repos = await client.getList<Blog>({ endpoint: "blog" });
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const pageNumbers = [];
 
   // rangeの引数に(start, end)を与えて、その値を元に配列を作成する関数
   const range = (start: number, end: number) =>
@@ -109,9 +111,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       blogData: data,
-      categoryData: categoryData.contents,
+      categoryData: categoryData,
       currentPage: pageId,
-      totalCount: data.totalCount,
+      totalArticleCount: data.totalCount,
     },
   };
 };
