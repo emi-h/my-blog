@@ -66,8 +66,6 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
   context
 ) => {
-  console.log(context);
-
   if (!context.params) {
     return {
       notFound: true,
