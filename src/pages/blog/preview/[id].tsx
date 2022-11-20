@@ -3,10 +3,8 @@ import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
-// import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
 import { renderToc } from "src/libs/render-toc";
-// import { renderToc } from "src/libs/render-toc";
 import styles from "src/styles/Home.module.css";
 import { Blog } from "src/types/Blog";
 
