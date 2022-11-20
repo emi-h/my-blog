@@ -1,7 +1,7 @@
 export const headerNavList: { href: string; pageName: string }[] = [
   { href: "/blog/page/1", pageName: "blog" },
   { href: "/about", pageName: "about" },
-  { href: "/sitemap", pageName: "sitemap" },
+  { href: "https://github.com/emi-h", pageName: "github" },
   { href: "/contact", pageName: "contact" },
 ];
 
