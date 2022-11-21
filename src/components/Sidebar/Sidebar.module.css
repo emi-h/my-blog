@@ -2,6 +2,9 @@
   width: 300px;
   margin-left: 20px;
 }
+.aside > div {
+  margin-top: 3rem;
+}
 .category_title {
   background-color: #eee;
   margin-top: 0;

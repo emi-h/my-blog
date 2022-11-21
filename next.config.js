@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "images.microcms-assets.io",
-      "scontent.cdninstagram.com",
-      "%3A%2F%2Fscontent.cdninstagram.com",
-    ],
+    domains: ["images.microcms-assets.io", "scontent.cdninstagram.com"],
+    unoptimized: true,
   },
   reactStrictMode: true,
   swcMinify: true,
