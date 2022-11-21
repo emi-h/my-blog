@@ -2,6 +2,9 @@
   width: 300px;
   margin-left: 20px;
 }
+.aside > div {
+  margin-top: 3rem;
+}
 .category_title {
   background-color: #eee;
   margin-top: 0;
@@ -16,6 +19,22 @@
 }
 .category_list li a {
   font-size: 18px;
+}
+.instagramList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.instagramList li {
+  padding-top: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.instagramList li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
 
 @media (max-width: 1023px) {

@@ -1,0 +1,21 @@
+.category_title {
+  background-color: #eee;
+  margin-top: 0;
+  padding: 0.5em 1em;
+}
+.instagramList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.instagramList li {
+  padding-top: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.instagramList li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}

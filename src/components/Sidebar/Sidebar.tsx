@@ -3,6 +3,8 @@ import { FC } from "react";
 import styles from "src/components/Sidebar/Sidebar.module.css";
 import { Category } from "src/types/Category";
 
+import { Instagram } from "../Instagram/Instagram";
+
 export const Sidebar: FC<{ categoryData: Category[] }> = ({ categoryData }) => {
   return (
     <aside className={styles.aside}>
@@ -17,6 +19,10 @@ export const Sidebar: FC<{ categoryData: Category[] }> = ({ categoryData }) => {
             );
           })}
         </ul>
+      </div>
+      <div>
+        <h2 className={styles.category_title}>Instagram</h2>
+        <Instagram />
       </div>
     </aside>
   );
