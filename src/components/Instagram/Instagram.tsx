@@ -33,6 +33,7 @@ export const Instagram: FC = () => {
                 alt={data.caption}
                 width={96}
                 height={96}
+                unoptimized
               />
             </Link>
           </li>
