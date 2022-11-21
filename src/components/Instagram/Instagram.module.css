@@ -1,21 +1,7 @@
-.aside {
-  width: 300px;
-  margin-left: 20px;
-}
 .category_title {
   background-color: #eee;
   margin-top: 0;
   padding: 0.5em 1em;
-}
-.category_list {
-  padding: 1em;
-  margin-top: 1rem;
-}
-.category_list li:not(:first-child) {
-  margin-top: 1em;
-}
-.category_list li a {
-  font-size: 18px;
 }
 .instagramList {
   display: grid;
@@ -32,12 +18,4 @@
   top: 0;
   left: 0;
   object-fit: cover;
-}
-
-@media (max-width: 1023px) {
-  .aside {
-    margin-left: 0;
-    width: 100%;
-    margin-top: 3rem;
-  }
 }
