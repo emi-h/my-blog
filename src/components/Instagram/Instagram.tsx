@@ -31,7 +31,8 @@ export const Instagram: FC = () => {
               <Image
                 src={data.media_url}
                 alt={data.caption}
-                fill
+                width={96}
+                height={96}
                 sizes="96px"
               />
             </Link>
