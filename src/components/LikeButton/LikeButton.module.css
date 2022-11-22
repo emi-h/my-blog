@@ -1,0 +1,23 @@
+.box {
+  background-color: #eee;
+  padding: 2rem;
+  display: inline-block;
+  border-radius: 10px;
+}
+.title {
+  margin-bottom: 20px;
+}
+.button {
+  background-color: transparent;
+  border-color: transparent;
+}
+.button .iconLiked svg {
+  fill: rgba(255, 0, 183, 1);
+}
+.thanksMessage {
+  color: rgba(255, 0, 183, 1);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 0, 183, 1);
+  padding: 5px 10px;
+  margin-left: 20px;
+}

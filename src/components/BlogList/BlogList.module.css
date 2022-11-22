@@ -60,6 +60,17 @@
   border: 1px solid #ddd;
   background-color: #ddd;
 }
+.like {
+  align-items: center;
+  margin-top: 10px;
+}
+.like span:not(:first-child) {
+  margin-left: 5px;
+}
+.like span svg {
+  fill: rgba(255, 0, 183, 1);
+  vertical-align: bottom;
+}
 /* .tags span:hover,
 .tags span:focus,
 .tags span:active {

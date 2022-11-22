@@ -5,6 +5,7 @@ import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Breadcrumb } from "src/components/Breadcrumb/Breadcrumb";
 import { CommonMeta } from "src/components/CommonMeta/CommonMeta";
+import { LikeButton } from "src/components/LikeButton/LikeButton";
 import { TableOfContents } from "src/components/TableOfContents/TableOfContents";
 import { client } from "src/libs/microCMSClient";
 import { renderHighlightedBody, renderToc } from "src/libs/render-toc";
@@ -48,6 +49,7 @@ const Post: NextPage<Props> = (props) => {
             dangerouslySetInnerHTML={{ __html: highlightedBody }}
           />
         </article>
+        <LikeButton />
       </div>
     </>
   );
