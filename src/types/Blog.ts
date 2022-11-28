@@ -7,6 +7,7 @@ export type Blog = {
   };
   content: string;
   content_excerpt: string;
+  createdAt: string;
   date: string;
   portfolio_img: { url: string };
   toc_visible: boolean;
