@@ -4,12 +4,13 @@ import { client } from "src/libs/microCMSClient";
 import { Blog } from "src/types/Blog";
 
 async function generateFeedXml() {
+  const SITE_URL = "https://3things.work";
   const feed = new RSS({
-    title: "console.log(emi);のフィード",
+    title: "console.log(emi);",
     description: "console.log(emi);のフィード",
-    feed_url: "https://3things.work/feed",
+    feed_url: `${SITE_URL}+/feed`,
     language: "ja",
-    site_url: "https://3things.work",
+    site_url: SITE_URL,
   });
 
   const { contents } = await client.get({
@@ -21,7 +22,7 @@ async function generateFeedXml() {
       title: post.title,
       date: new Date(post.createdAt),
       description: post.content_excerpt,
-      url: `https://3things.work/blog/${post.category.id}/${post.id}`, // 適宜修正してください
+      url: `${SITE_URL}/blog/${post.id}`, // 適宜修正
     });
   });
 
