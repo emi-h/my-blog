@@ -81,6 +81,9 @@
   padding: 1em;
   overflow: auto;
 }
+.blog_post blockquote {
+  line-height: 2;
+}
 .blog_post a {
   text-decoration: underline;
   word-wrap: break-word;

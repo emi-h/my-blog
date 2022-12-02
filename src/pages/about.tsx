@@ -68,6 +68,10 @@ const About = () => {
                 <li>お問合せフォーム : Noway form</li>
                 <li>404ページ</li>
                 <li>管理画面プレビュー</li>
+                <li>サイトマップ</li>
+                <li>RSS</li>
+                <li>Googleタグマネージャー</li>
+                <li>Instagram投稿掲載</li>
               </ul>
             </div>
           </section>
