@@ -67,6 +67,9 @@
   padding: 0.5em 1em;
   margin: 2em 0;
 }
+.blog_post iframe {
+  max-width: 100%;
+}
 .blog_post .category span {
   display: inline-block;
   padding: 0 1em;
